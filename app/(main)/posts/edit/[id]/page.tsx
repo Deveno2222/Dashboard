@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import posts from "@/data/post";
 import { title } from "process";
 import React from "react";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   title: z.string().min(1, {
@@ -54,6 +55,11 @@ const PostEditPage = ({ params }: PostEditPageProps) => {
 
   const handleSubmit = (data: z.infer<typeof formSchema>) => {
     console.log(data);
+
+    toast.success("Post updated successfully!", {
+      duration: 4000,
+      position: "top-center",
+    });
   };
 
   return (
